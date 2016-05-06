@@ -1,2 +1,3 @@
 # react-native
-quick windows testing
+Uses nodeJs server:
+https://github.com/vulp/node-server
