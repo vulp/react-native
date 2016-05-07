@@ -12,7 +12,7 @@ sass android/styles/sass/style.sass android/styles/css/style.css
 ```
 ##React Native Css
 ``` shell
-react-native-css android/styles/sass/style.css android/styles/js/style.js --literal
+react-native-css android/styles/css/style.css android/styles/js/style.js --literal
 ```
 
 After this you can require styles to index
