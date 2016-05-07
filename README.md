@@ -1,5 +1,8 @@
 # react-native
-Uses nodeJs server:
+react-native, react-native-css
+
+##Back-end
+Nodejs Express MongoDb
 https://github.com/vulp/node-server
 
 # Todo
