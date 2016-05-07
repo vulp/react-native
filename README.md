@@ -6,6 +6,7 @@ https://github.com/vulp/node-server
 "babel": {
     "presets": ["es2015", "react"]
 }
+
 depencies:
 
 history
