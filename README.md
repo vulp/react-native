@@ -7,9 +7,11 @@ https://github.com/vulp/node-server
     "presets": ["es2015", "react"]
 }
 depencies:
+
 history
 
 dev-depencies:
+
 babel
 gulp
 
