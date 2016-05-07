@@ -1,5 +1,7 @@
 # React-Native
-react-native, react-native-css
+[React Native] (https://facebook.github.io/react-native/)
+
+[React native css] (https://www.npmjs.com/package/react-native-css)
 
 
 
