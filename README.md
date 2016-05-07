@@ -1,5 +1,24 @@
-# react-native
+# React-Native
 react-native, react-native-css
+
+
+
+##Sass
+Install sass http://sass-lang.com/install
+
+Process sass file from command line
+``` shell
+sass android/styles/sass/style.sass android/styles/css/style.css
+```
+##React Native Css
+``` shell
+react-native-css android/styles/sass/style.css android/styles/js/style.js --literal
+```
+
+After this you can require styles to index
+``` shell
+styles = require('./android/styles/js/style.js');
+```
 
 ##Back-end
 Nodejs Express MongoDb
@@ -18,5 +37,10 @@ dev-depencies:
 
 babel
 gulp
+
+``` shell
+sass --watch app/sass:public/stylesheets
+react-native-css android/styles/sass/style.css android/styles/js/style.js --watch
+```
 
 
