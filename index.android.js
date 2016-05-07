@@ -2,7 +2,7 @@
  * React Native App testing
  */
 
-var REQUEST_URL = 'http://192.168.56.1:3000/movielist';
+var REQUEST_URL = 'http://<ip>:3000/movielist';
 
 import React, {
   AppRegistry,
