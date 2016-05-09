@@ -14,7 +14,7 @@ import React, {
   ListView,
 } from 'react-native';
 
-styles = require('./android/styles/js/style.js');
+styles = require('./styles/js/style.js');
 
 class AwesomeProject extends Component {
   constructor(props) {
