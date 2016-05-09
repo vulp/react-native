@@ -59,11 +59,5 @@ history
 dev-depencies:
 
 babel
-gulp
-
-``` shell
-sass --watch app/sass:public/stylesheets
-react-native-css android/styles/sass/style.css android/styles/js/style.js --watch
-```
 
 
