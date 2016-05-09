@@ -3,6 +3,7 @@
 
 
 ##Building css with react-native-css
+Using this way you need to do file watching for sass and react-native-css commands
 
 ###React Native Css
 Install [React native css] (https://www.npmjs.com/package/react-native-css)
