@@ -6,7 +6,7 @@
 Using this way you need to do file watching for sass and react-native-css commands
 
 ###React Native Css
-Install [React native css] (https://www.npmjs.com/package/react-native-css)
+npm install [React native css] (https://www.npmjs.com/package/react-native-css)
 
 ###Sass
 Install [sass] (http://sass-lang.com/install)
@@ -26,8 +26,8 @@ After this you can require styles to index
 styles = require('./android/styles/js/style.js');
 ```
 
-##Building css with gulp-react-native-css
-[Gulp react native css](https://www.npmjs.com/package/gulp-react-native-stylesheet-css)
+##Building css with [gulp-react-native-css](https://www.npmjs.com/package/gulp-react-native-stylesheet-css)
+
 
 ###Gulp
 Build style.js automatically with:
