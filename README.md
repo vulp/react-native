@@ -37,6 +37,11 @@ And manually with:
 gulp sassToReact
 ```
 
+After this you can require styles to index
+``` shell
+styles = require('./android/styles/js/style.js');
+```
+
 ##Back-end
 Nodejs Express MongoDb
 https://github.com/vulp/node-server
