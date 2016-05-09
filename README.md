@@ -27,6 +27,7 @@ styles = require('./android/styles/js/style.js');
 ```
 
 ##Building css with gulp-react-native-css
+[Gulp react native css](https://www.npmjs.com/package/gulp-react-native-stylesheet-css)
 
 ###Gulp
 Build style.js automatically with:
