@@ -22,6 +22,16 @@ After this you can require styles to index
 styles = require('./android/styles/js/style.js');
 ```
 
+##Gulp
+Build style.js automatically with:
+``` shell
+gulp sassToReact:watch
+```
+And manually with:
+``` shell
+gulp sassToReact
+```
+
 ##Back-end
 Nodejs Express MongoDb
 https://github.com/vulp/node-server
