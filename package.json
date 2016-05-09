@@ -8,6 +8,12 @@
   "dependencies": {
     "react": "^0.14.8",
     "react-native": "^0.24.1",
-    "react-native-css":"^1.2.40"
+    "react-native-css": "^1.2.40"
+  },
+  "devDependencies": {
+    "coffee-script": "^1.10.0",
+    "gulp": "^3.9.1",
+    "gulp-react-native-css": "^0.1.0",
+    "gulp-sass": "^2.3.1"
   }
 }
