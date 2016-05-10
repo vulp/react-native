@@ -2,8 +2,6 @@
  * React Native App testing
  */
 
-var REQUEST_URL = 'http://192.168.56.1:3000/movielist';
-
 import React, {
   AppRegistry,
   Component,
@@ -12,11 +10,15 @@ import React, {
   View,
   Image,
   ListView,
+  ViewPagerAndroid,
+  TouchableOpacity
 } from 'react-native';
 
+var REQUEST_URL = 'http://192.168.56.1:3000/movielist';
 styles = require('./styles/js/style.js');
 
 class AwesomeProject extends Component {
+
   constructor(props) {
     super(props);
     this.state = {
@@ -27,11 +29,11 @@ class AwesomeProject extends Component {
     };
   }
 
-  componentDidMount() {
+ componentDidMount() {
     this.fetchData();
   }
 
-  fetchData() {
+   fetchData() {
     fetch(REQUEST_URL)
       .then((response) => response.json())
       .then((responseData) => {
@@ -41,20 +43,64 @@ class AwesomeProject extends Component {
         });
       })
       .done();
-  }
+   }
 
-
-  render() {
-      if (!this.state.loaded) {
-          return this.renderLoadingView();
-      }
-
+   render() {
+    if (!this.state.loaded) {
+        return this.renderLoadingView();
+    }
       return(
+      <View style={styles.mainContainer}>
+      <View style={styles.buttons}>
+
+        <TouchableOpacity
+        style={styles.button}
+        onPress={() => { _viewPager.setPage(0); }}>
+        <Image style={styles.image} source={require('./pic.jpg')} >
+            <Text>Inside</Text>
+        </Image>
+        </TouchableOpacity>
+
+        <TouchableOpacity
+        style={styles.button}
+        onPress={() => { _viewPager.setPage(1); }}>
+        <Image style={styles.image} source={require('./pic.jpg')} >
+            <Text>Inside</Text>
+        </Image>
+        </TouchableOpacity>
+
+        <TouchableOpacity
+        style={styles.button}
+        onPress={() => { _viewPager.setPage(3); }}>
+        <Image style={styles.image} source={require('./pic.jpg')} >
+            <Text>Inside</Text>
+        </Image>
+        </TouchableOpacity>
+
+      </View>
+
+      <ViewPagerAndroid
+      ref={viewPager => { _viewPager = viewPager; }}
+      style={styles.viewPager}
+            initialPage={0}>
+      <View style={styles.pageStyle}>
         <ListView
-         dataSource={this.state.dataSource}
-         renderRow={this.renderMovie}
-         style={styles.listView}
+            dataSource={this.state.dataSource}
+            renderRow={this.renderMovie}
+            style={styles.listView}
         />
+      </View>
+
+      <View style={styles.pageStyle}>
+        <Text>Todo: add data adding here</Text>
+      </View>
+
+      <View style={styles.pageStyle}>
+        <Text>Create something here</Text>
+      </View>
+
+      </ViewPagerAndroid>
+      </View>
       );
   }
   renderLoadingView() {
@@ -66,7 +112,7 @@ class AwesomeProject extends Component {
         </View>
       );
     }
-renderMovie(movie) {
+  renderMovie(movie) {
     return (
       <View style={styles.container}>
         <Image
@@ -80,6 +126,7 @@ renderMovie(movie) {
       </View>
     );
   }
+
 }
 
 AppRegistry.registerComponent('AwesomeProject', () => AwesomeProject);
