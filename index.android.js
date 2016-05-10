@@ -51,79 +51,85 @@ class AwesomeProject extends Component {
     }
       return(
       <View style={styles.mainContainer}>
-      <View style={styles.buttons}>
+          <View style={styles.buttons}>
 
-        <TouchableOpacity
-        style={styles.button}
-        onPress={() => { _viewPager.setPage(0); }}>
-        <Image style={styles.image} source={require('./pic.jpg')} >
-            <Text>Inside</Text>
-        </Image>
-        </TouchableOpacity>
+            <TouchableOpacity
+                style={styles.button}
+                onPress={() => { _viewPager.setPage(0); }}>
 
-        <TouchableOpacity
-        style={styles.button}
-        onPress={() => { _viewPager.setPage(1); }}>
-        <Image style={styles.image} source={require('./pic.jpg')} >
-            <Text>Inside</Text>
-        </Image>
-        </TouchableOpacity>
+                <Image style={styles.image} source={require('./pic.jpg')} >
+                    <Text>Inside</Text>
+                </Image>
+            </TouchableOpacity>
 
-        <TouchableOpacity
-        style={styles.button}
-        onPress={() => { _viewPager.setPage(3); }}>
-        <Image style={styles.image} source={require('./pic.jpg')} >
-            <Text>Inside</Text>
-        </Image>
-        </TouchableOpacity>
+            <TouchableOpacity
+                style={styles.button}
+                onPress={() => { _viewPager.setPage(1); }}>
 
-      </View>
+                <Image style={styles.image} source={require('./pic.jpg')} >
+                    <Text>Inside</Text>
+                </Image>
+            </TouchableOpacity>
 
-      <ViewPagerAndroid
-      ref={viewPager => { _viewPager = viewPager; }}
-      style={styles.viewPager}
+            <TouchableOpacity
+                style={styles.button}
+                onPress={() => { _viewPager.setPage(3); }}>
+
+                <Image style={styles.image} source={require('./pic.jpg')} >
+                    <Text>Inside</Text>
+                </Image>
+            </TouchableOpacity>
+
+          </View>
+
+          <ViewPagerAndroid
+            ref={viewPager => { _viewPager = viewPager; }}
+            style={styles.viewPager}
             initialPage={0}>
-      <View style={styles.pageStyle}>
-        <ListView
-            dataSource={this.state.dataSource}
-            renderRow={this.renderMovie}
-            style={styles.listView}
-        />
-      </View>
 
-      <View style={styles.pageStyle}>
-        <Text>Todo: add data adding here</Text>
-      </View>
+            <View style={styles.pageStyle}>
+                <ListView
+                    dataSource={this.state.dataSource}
+                    renderRow={this.renderMovie}
+                    style={styles.listView}
+                />
+            </View>
 
-      <View style={styles.pageStyle}>
-        <Text>Create something here</Text>
-      </View>
+            <View style={styles.pageStyle}>
+                <Text>Todo: add data adding here</Text>
+            </View>
 
-      </ViewPagerAndroid>
+            <View style={styles.pageStyle}>
+                <Text>Create something here</Text>
+            </View>
+
+          </ViewPagerAndroid>
       </View>
-      );
+    );
   }
+
   renderLoadingView() {
-      return (
+    return (
         <View style={styles.container}>
-          <Text>
-            Loading movies...
-          </Text>
+            <Text>
+                Loading movies...
+            </Text>
         </View>
-      );
-    }
+    );
+  }
+
   renderMovie(movie) {
     return (
-      <View style={styles.container}>
-        <Image
-          source={{uri: movie.posters.thumbnail}}
-          style={styles.thumbnail}
-        />
-        <View style={styles.rightContainer}>
-          <Text style={styles.title}>{movie.title}</Text>
-          <Text style={styles.year}>{movie.year}</Text>
+        <View style={styles.container}>
+            <Image
+                source={{uri: movie.posters.thumbnail}}
+                style={styles.thumbnail}
+            />
+            <View style={styles.rightContainer}>
+                <Text style={styles.title}>{movie.title}</Text>
+                <Text style={styles.year}>{movie.year}</Text>
+            </View>
         </View>
-      </View>
     );
   }
 
