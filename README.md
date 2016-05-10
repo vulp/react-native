@@ -1,18 +1,22 @@
 # React-Native
 [React Native] (https://facebook.github.io/react-native/)
 
-[React native css] (https://www.npmjs.com/package/react-native-css)
 
+##Building css with react-native-css
+Using this way you need to do file watching for sass and react-native-css commands
 
+###React Native Css
+npm install [React native css] (https://www.npmjs.com/package/react-native-css)
 
-##Sass
-Install sass http://sass-lang.com/install
+###Sass
+Install [sass] (http://sass-lang.com/install)
 
-Process sass file from command line
+Process sass file from command line.
+There was some errors when running sass to scss so I tried css and it worked...
 ``` shell
 sass android/styles/sass/style.sass android/styles/css/style.css
 ```
-##React Native Css
+and run this:
 ``` shell
 react-native-css android/styles/css/style.css android/styles/js/style.js --literal
 ```
@@ -22,7 +26,10 @@ After this you can require styles to index
 styles = require('./android/styles/js/style.js');
 ```
 
-##Gulp
+##Building css with [gulp-react-native-css](https://www.npmjs.com/package/gulp-react-native-stylesheet-css)
+
+
+###Gulp
 Build style.js automatically with:
 ``` shell
 gulp sassToReact:watch
@@ -30,6 +37,11 @@ gulp sassToReact:watch
 And manually with:
 ``` shell
 gulp sassToReact
+```
+
+After this you can require styles to index
+``` shell
+styles = require('./android/styles/js/style.js');
 ```
 
 ##Back-end
@@ -48,11 +60,5 @@ history
 dev-depencies:
 
 babel
-gulp
-
-``` shell
-sass --watch app/sass:public/stylesheets
-react-native-css android/styles/sass/style.css android/styles/js/style.js --watch
-```
 
 
