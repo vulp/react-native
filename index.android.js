@@ -1,5 +1,6 @@
 /**
- * React Native App testing
+ * Server listing app
+ * @author Tuomo Pohjola
  */
 
 import React, {
@@ -7,11 +8,15 @@ import React, {
   Component,
   StyleSheet,
   Text,
+  TextInput,
   View,
+  ScrollView,
   Image,
+  Button,
   ListView,
   ViewPagerAndroid,
-  TouchableOpacity
+  TouchableOpacity,
+  TouchableWithoutFeedback
 } from 'react-native';
 
 var REQUEST_URL = 'http://192.168.56.1:3000/movielist';
@@ -96,7 +101,7 @@ class AwesomeProject extends Component {
             </View>
 
             <View style={styles.pageStyle}>
-                <Text>Todo: add data adding here</Text>
+                <AddCustomer />
             </View>
 
             <View style={styles.pageStyle}>
@@ -132,7 +137,74 @@ class AwesomeProject extends Component {
         </View>
     );
   }
-
 }
+
+/*
+Customer creating form
+*/
+var AddCustomer = React.createClass({
+    getInitialState: function() {
+        return {
+            name:'',
+            ip:'',
+            server_alias:'',
+            username:'',
+            password:'',
+        };
+    },
+    handleSubmit() {
+
+    },
+    handleClear() {
+
+    },
+    render: function() {
+        return (
+            <View >
+                <ScrollView
+                    style={styles.scrollView}>
+                    <Text>Add new Customer</Text>
+                    <Text>Customer name</Text>
+                    <TextInput
+                       autoFocus = {true}
+                       placeholder = "Add customer name here"
+                       onChangeText={(name) => this.setState({name})}
+                    />
+
+                    <Text>Server address</Text>
+                    <TextInput
+                       placeholder = "Add ip"
+                       onChangeText={(ip) => this.setState({ip})}
+                    />
+
+                    <Text>Server alias</Text>
+                    <TextInput
+                       placeholder = "Add alias"
+                       onChangeText={(server_alias) => this.setState({server_alias})}
+                    />
+
+                    <Text>Username</Text>
+                    <TextInput
+                       placeholder = "username"
+                       onChangeText={(username) => this.setState({username})}
+                    />
+
+                    <Text>Password</Text>
+                    <TextInput
+                       placeholder = "password"
+                       secureTextEntry = {true}
+                       onChangeText={(password) => this.setState({password})}
+                    />
+                  <TouchableWithoutFeedback >
+                    <View  style={styles.button}>
+                      <Text>Submit</Text>
+                    </View>
+                  </TouchableWithoutFeedback>
+                </ScrollView>
+            </View>
+
+        );
+    }
+});
 
 AppRegistry.registerComponent('AwesomeProject', () => AwesomeProject);

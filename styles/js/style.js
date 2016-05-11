@@ -57,5 +57,8 @@ module.exports ={
     },
     "viewPager": {
         "flex": 1
+    },
+    "scrollView": {
+        "height": 300
     }
 }
