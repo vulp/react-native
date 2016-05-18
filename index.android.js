@@ -16,10 +16,11 @@ import React, {
   ListView,
   ViewPagerAndroid,
   TouchableOpacity,
-  TouchableWithoutFeedback
+  TouchableWithoutFeedback,
+  TouchableHighlight,
 } from 'react-native';
 
-var REQUEST_URL = 'http://192.168.56.1:3000/movielist';
+var REQUEST_URL = 'http://192.168.56.1:3000/server';
 styles = require('./styles/js/style.js');
 
 class AwesomeProject extends Component {
@@ -43,7 +44,7 @@ class AwesomeProject extends Component {
       .then((response) => response.json())
       .then((responseData) => {
         this.setState({
-           dataSource: this.state.dataSource.cloneWithRows(responseData.movies),
+           dataSource: this.state.dataSource.cloneWithRows(responseData.servers),
            loaded: true,
         });
       })
@@ -117,22 +118,18 @@ class AwesomeProject extends Component {
     return (
         <View style={styles.container}>
             <Text>
-                Loading movies...
+                Loading servers...
             </Text>
         </View>
     );
   }
 
-  renderMovie(movie) {
+  renderMovie(server) {
     return (
         <View style={styles.container}>
-            <Image
-                source={{uri: movie.posters.thumbnail}}
-                style={styles.thumbnail}
-            />
             <View style={styles.rightContainer}>
-                <Text style={styles.title}>{movie.title}</Text>
-                <Text style={styles.year}>{movie.year}</Text>
+                <Text style={styles.title}>{server.name}</Text>
+                <Text style={styles.year}>{server.ip}</Text>
             </View>
         </View>
     );
@@ -152,8 +149,21 @@ var AddCustomer = React.createClass({
             password:'',
         };
     },
-    handleSubmit() {
-
+    _handleSubmit: function() {
+        fetch('http://192.168.56.1:3000/server/add', {
+          method: 'POST',
+          headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+            'name': this.state.name,
+            'ip':this.state.ip,
+            'username': this.state.username,
+            'password': this.state.password,
+          })
+        })
+        .done();
     },
     handleClear() {
 
@@ -177,12 +187,6 @@ var AddCustomer = React.createClass({
                        onChangeText={(ip) => this.setState({ip})}
                     />
 
-                    <Text>Server alias</Text>
-                    <TextInput
-                       placeholder = "Add alias"
-                       onChangeText={(server_alias) => this.setState({server_alias})}
-                    />
-
                     <Text>Username</Text>
                     <TextInput
                        placeholder = "username"
@@ -195,11 +199,11 @@ var AddCustomer = React.createClass({
                        secureTextEntry = {true}
                        onChangeText={(password) => this.setState({password})}
                     />
-                  <TouchableWithoutFeedback >
+                  <TouchableHighlight onPress={this._handleSubmit}>
                     <View  style={styles.button}>
                       <Text>Submit</Text>
                     </View>
-                  </TouchableWithoutFeedback>
+                  </TouchableHighlight>
                 </ScrollView>
             </View>
 
